@@ -75,3 +75,6 @@ export class Example {
 | isEmpty (): boolean | Validates if a GUID instance is empty (GUID containing only zeros)  |
 | toString (): string | Returns a guid as string  |
 | toShortString(): string | Returns a guid as string without hyphens |
+
+## Why bother with yet another GUID TypeScript library?
+Well, there are indeed a few GUID/UUID-related libraries out there! Most of them are not maintained anymore or lack functionality for GUID handling, that's why *ez-guid* was started.
