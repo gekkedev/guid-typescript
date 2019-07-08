@@ -26,7 +26,7 @@ describe("Guid", () => {
         expect(Guid.isValid(example)).equal(true);
     });
 
-    it("should create nulled GUIDs & return them as string", () => {
+    it("should create nulled GUIDs & return them as a string", () => {
         expect(Guid.createEmpty().toString()).equal(Guid.EMPTY);
     });
 
