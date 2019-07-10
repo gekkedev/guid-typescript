@@ -43,7 +43,7 @@ describe("Guid", () => {
         const wrong_guid: Guid = Guid.create();
         expect(wrong.equals(Guid.create())).equal(false);
         
-        const right: Guid = Guid.create(example);
+        const correct_guid: Guid = Guid.create(example);
         const duplicate: Guid = Guid.create(example);
         expect(right.equals(duplicate)).equal(true);
     });
