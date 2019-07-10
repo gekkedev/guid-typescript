@@ -40,7 +40,7 @@ describe("Guid", () => {
     });
 
     it("should compare GUID instances to another", () => {
-        const wrong: Guid = Guid.create();
+        const wrong_guid: Guid = Guid.create();
         expect(wrong.equals(Guid.create())).equal(false);
         
         const right: Guid = Guid.create(example);
