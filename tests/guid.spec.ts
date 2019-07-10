@@ -14,7 +14,7 @@ describe("Guid", () => {
         expect(Guid.isValid(statically)).equal(true); //vaid?
         expect(statically.toString()).not.equal(Guid.EMPTY); //not null?
 
-        const dynamic: Guid = new Guid();
+        const dynamic_guid: Guid = new Guid();
         expect(Guid.isValid(dynamic)).equal(true); //vaid?
         expect(dynamic.toString()).not.equal(Guid.EMPTY); //not null?
     });
