@@ -17,7 +17,6 @@ export class Guid {
         return new Guid(this.EMPTY);
     }
 
-    private static validator: RegExp = new RegExp("^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$", "i");
 
     private static gen(count: number): string {
         let out: string = "";
