@@ -42,6 +42,7 @@ export class Guid {
         } else if (guid && !guid.includes("-") && guid.length == 32) { //non-hyphenated
             let tempGuid: string = "";
             let pos: number = 0;
+
             for (const i of [8, 4, 4, 4, 12]) {
                 if (pos != 0) tempGuid += "-";
                 tempGuid += guid.substr(pos, i).toLowerCase();
