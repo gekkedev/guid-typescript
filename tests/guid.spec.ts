@@ -10,7 +10,7 @@ describe("Guid", () => {
         const wrong: string = "wrongguid";
         expect(Guid.isValid(wrong)).equal(false);
 
-        const statically: Guid = Guid.create();
+        const static_guid: Guid = Guid.create();
         expect(Guid.isValid(statically)).equal(true); //vaid?
         expect(statically.toString()).not.equal(Guid.EMPTY); //not null?
 
