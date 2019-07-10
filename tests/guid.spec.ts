@@ -3,7 +3,7 @@ import "mocha";
 import { Guid } from "../lib/guid";
 
 describe("Guid", () => {
-    const example: string = "0315642c-a069-9f3e-1852-9adf2d075b93";
+    const example_hyphen: string = "0315642c-a069-9f3e-1852-9adf2d075b93";
     const example_no_hyphen: string = "0315642ca0699f3e18529adf2d075b93";
 
     it("should create & validate a random GUID", () => {
