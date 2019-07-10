@@ -1,7 +1,8 @@
 export class Guid {
     /** Empty GUID string (hyphenated). */
     public static EMPTY = "00000000-0000-0000-0000-000000000000";
-
+    private static validator: RegExp = new RegExp("^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$", "i");
+    
     public static isValid(guid: any) {
         const value: string = guid.toString();
         return guid && (guid instanceof Guid || this.validator.test(value));
