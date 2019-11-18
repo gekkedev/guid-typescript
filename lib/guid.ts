@@ -3,8 +3,11 @@ export class Guid {
     public static EMPTY = "00000000-0000-0000-0000-000000000000";
     private static validator: RegExp = new RegExp("^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$", "i");
     
-    public static isValid(guid: any) {
-        const value: string = guid.toString();
+    public static isValid(guid: string | Guid) {
+        let value: string;
+        if (typeof(guid) == "string") {
+            value = (guid.indexOf("-") < 0) new Guid(guid) : guid; //if hypenated, parse it first
+        } else value = guid.toString();
         return guid && (guid instanceof Guid || this.validator.test(value));
     }
 
