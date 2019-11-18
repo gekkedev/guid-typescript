@@ -11,7 +11,6 @@ describe("Guid", () => {
         expect(Guid.isValid(wrong)).equal(false);
 
         //string
-        const dynamic_guid: Guid = new Guid();
         expect(Guid.isValid(example_hyphen)).equal(true); //valid?
         expect(Guid.isValid(example_no_hyphen)).equal(true); //non-hyphenated guid. also valid?
 
