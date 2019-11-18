@@ -10,10 +10,17 @@ describe("Guid", () => {
         const wrong: string = "wrongguid";
         expect(Guid.isValid(wrong)).equal(false);
 
+        //string
+        const dynamic_guid: Guid = new Guid();
+        expect(Guid.isValid(example_hyphen)).equal(true); //valid?
+        expect(Guid.isValid(example_no_hyphen)).equal(true); //non-hyphenated guid. also valid?
+
+        //generated guid using the static construction method
         const static_guid: Guid = Guid.create();
         expect(Guid.isValid(static_guid)).equal(true); //valid?
         expect(static_guid.toString()).not.equal(Guid.EMPTY); //not null?
 
+        //generated guid using the constructor; same expectation here
         const dynamic_guid: Guid = new Guid();
         expect(Guid.isValid(dynamic_guid)).equal(true); //valid?
         expect(dynamic_guid.toString()).not.equal(Guid.EMPTY); //not null?
