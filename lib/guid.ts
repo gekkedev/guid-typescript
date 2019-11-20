@@ -6,7 +6,7 @@ export class Guid {
     public static isValid(guid: string | Guid) {
         let value: string;
         if (typeof(guid) == "string") {
-            value = (guid.indexOf("-") < 0) ? new Guid(guid).toString() : guid; //if hypenated, parse it first
+            value = (guid.indexOf("-") < 0) ? (new Guid(guid)).toString() : guid; //if hypenated, parse it first
         } else value = guid.toString();
         return guid && (guid instanceof Guid || this.validator.test(value));
     }
