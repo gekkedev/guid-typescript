@@ -1,18 +1,21 @@
 export class Guid {
     /** Empty GUID string (hyphenated). */
-    public static EMPTY = "00000000-0000-0000-0000-000000000000";
+    public static EMPTY: string = "00000000-0000-0000-0000-000000000000";
     private static validator: RegExp = new RegExp("^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$", "i");
-    
-    public static isValid(guid: string | Guid) {
+
+    public static isValid(guid: string | Guid): boolean {
+        if (guid == undefined) return false;
         let value: string;
-        if (typeof(guid) == "string") {
-            value = (guid.indexOf("-") < 0) ? (new Guid(guid)).toString() : guid; //if hypenated, parse it first
+        if (typeof (guid) == "string") {
+            try {
+                value = (guid.indexOf("-") < 0) ? (new Guid(guid)).toString() : guid; //if hypenated, parse it first
+            } catch { return false }
         } else value = guid.toString();
-        return guid && (guid instanceof Guid || this.validator.test(value));
+        return guid instanceof Guid || this.validator.test(value)
     }
 
+    /** Static alias for `new Guid()`. Refer to the constructor for further information. */
     public static create(guid?: string): Guid {
-        if (!guid) guid = this.random();
         return new Guid(guid);
     }
 
@@ -39,8 +42,9 @@ export class Guid {
     /** Container for the GUID itself (in the hyphenated format). */
     private value: string = Guid.EMPTY;
 
+    /** Creates a guid object from a given Guid or, (if no parameter is given) creates one. Supported formats are: hyptenated and non-hyphenated. */
     constructor(guid?: string) {
-        if (guid && Guid.isValid(guid)) { //hyphenated, no conversion necessary
+        if (guid && Guid.validator.test(guid)) { //hyphenated, no conversion necessary
             this.value = guid.toLowerCase();
         } else if (guid && !(guid.indexOf("-") >= 0) && guid.length == 32) { //non-hyphenated
             let tempGuid: string = "";
@@ -54,7 +58,7 @@ export class Guid {
             this.value = tempGuid;
         } else if (!guid) {
             this.value = Guid.random();
-        } else throw new TypeError("No valid GUID string given; cannot instantiate!")
+        } else throw new TypeError("Invalid GUID string given; cannot instantiate!")
     }
 
     /** Compares one Guid instance with another */
