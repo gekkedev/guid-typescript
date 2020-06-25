@@ -8,7 +8,7 @@ export class Guid {
         let value: string;
         if (typeof (guid) == "string") {
             try {
-                value = (guid.indexOf("-") < 0) ? (new Guid(guid)).toString() : guid; //if hypenated, parse it first
+                value = (guid.indexOf("-") < 0) ? (new Guid(guid)).toString() : guid; //if hyphenated, parse it first
             } catch { return false }
         } else value = guid.toString();
         return guid instanceof Guid || this.validator.test(value)
@@ -42,7 +42,7 @@ export class Guid {
     /** Container for the GUID itself (in the hyphenated format). */
     private value: string = Guid.EMPTY;
 
-    /** Creates a guid object from a given Guid or, (if no parameter is given) creates one. Supported formats are: hyptenated and non-hyphenated. */
+    /** Creates a guid object from a given Guid or, (if no parameter is given) creates one. Supported formats are: hyphenated and non-hyphenated. */
     constructor(guid?: string) {
         if (guid && Guid.validator.test(guid)) { //hyphenated, no conversion necessary
             this.value = guid.toLowerCase();
