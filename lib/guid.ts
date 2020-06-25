@@ -6,7 +6,7 @@ export class Guid {
     public static isValid(guid: string | Guid): boolean {
         if (typeof (guid) == "string") {
             try {
-                value = (guid.indexOf("-") < 0) ? (new Guid(guid)).toString() : guid; //if hyphenated, parse it first
+                let value: string = (guid.indexOf("-") < 0) ? (new Guid(guid)).toString() : guid; //if hyphenated, parse it first
                 return this.validator.test(value)
             } catch { return false }
         } else return guid instanceof Guid
