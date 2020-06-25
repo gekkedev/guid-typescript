@@ -4,7 +4,6 @@ export class Guid {
     private static validator: RegExp = new RegExp("^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$", "i");
 
     public static isValid(guid: string | Guid): boolean {
-        let value: string;
         if (typeof (guid) == "string") {
             try {
                 value = (guid.indexOf("-") < 0) ? (new Guid(guid)).toString() : guid; //if hyphenated, parse it first
