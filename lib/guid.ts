@@ -4,14 +4,13 @@ export class Guid {
     private static validator: RegExp = new RegExp("^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$", "i");
 
     public static isValid(guid: string | Guid): boolean {
-        if (guid == undefined) return false;
         let value: string;
         if (typeof (guid) == "string") {
             try {
                 value = (guid.indexOf("-") < 0) ? (new Guid(guid)).toString() : guid; //if hyphenated, parse it first
+                return this.validator.test(value)
             } catch { return false }
-        } else value = guid.toString();
-        return guid instanceof Guid || this.validator.test(value)
+        } else return guid instanceof Guid
     }
 
     /** Static alias for `new Guid()`. Refer to the constructor for further information. */

@@ -35,8 +35,12 @@ describe("Guid", () => {
         expect(Guid.isValid(example_hyphen)).equal(true); //valid?
         expect(Guid.isValid(example_no_hyphen)).equal(true); //non-hyphenated guid. also valid?
         expect(Guid.isValid(example_no_hyphen + wrong)).equal(false); //valid guid plus one char. invalid?
+        //@ts-ignore
         expect(Guid.isValid(undefined)).equal(false);
+        //@ts-ignore
         expect(Guid.isValid(null)).equal(false);
+        //@ts-ignore
+        expect(Guid.isValid(123456789)).equal(false);
     });
 
     it("should create nulled GUIDs & return them as a string", () => {
