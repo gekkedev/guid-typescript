@@ -1,6 +1,8 @@
 # Easy GUIDs for Typescript (ez-guid)
 [![Build Status](https://travis-ci.com/ez-libs/ez-guid.svg?branch=master)](https://travis-ci.com/ez-libs/ez-guid)
-[![npm version](https://badge.fury.io/js/ez-guid.svg)](https://badge.fury.io/js/ez-guid)  
+[![npm version](https://badge.fury.io/js/ez-guid.svg)](https://badge.fury.io/js/ez-guid)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=ez-libs/ez-guid)](https://dependabot.com)  
+
 The library ez-guid serves as type definition for globally unique IDs(GUIDs) in Typescript and therefore provides interfaces to generate/parse/compare/validate them.
 
 ## Supported GUID Formats
